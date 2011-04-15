@@ -1,0 +1,52 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+  <link type="text/css" rel="stylesheet" href="/css/reports.css" media="screen" /> 
+  <link type="text/css" rel="stylesheet" href="/js/jquery-ui-1.8.4/css/ui-lightness/jquery-ui-1.8.4.custom.css" media="screen" /> 
+  <script type="text/javascript" src="/js/jquery-ui-1.8.4/js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="/js/jquery-ui-1.8.4/js/jquery-ui-1.8.4.custom.min.js"></script>
+  <script type="text/javascript" src="/js/meio.mask/js/jquery.meio.mask.js"></script>
+  <title>Relatórios</title>
+</head> 
+<body> 
+  <table width="100%">
+    <tr>
+      <td width="200">
+        <img src="/images/logo2.png" width="180" height="58" />
+      </td>
+      <td>
+      <div id='appname' style="text-align:center">
+        <font style="font-size:30px; font-weight:bold">.:: Relatórios ::.</font><br/>
+        <font style="font-size:12px">| Sistema de registros de visitas e geração de relatórios periódicos |</font> 
+      </div>
+      </td>
+      <td width="200">
+      </td>
+    </tr>
+  </table>
+
+<hr/>
+ 
+  <div id='head' style="text-align:center">
+      <a href='/visitas' class="mainlink">Cadastro de Visitas</a>
+      <a href='/clientes' class="mainlink">Cadastro de Clientes</a>
+      <a href='/medicos' class="mainlink">Cadastro de Médicos</a>
+      <a href='/weekreports' class="mainlink">Emissão de relatórios</a>  
+      <a href='/import' class="mainlink">Importação</a>  
+  </div> 
+<!--the lines above doesn't work! I don't know how to do this feature! F***!!' -->
+  <br/>
+  <div id=errormessages style="text-align:center; color:red">
+  <%= @errors %>
+  </div>
+
+<br/>
+<center>
+<%= yield %>
+</center>
+
+</body>
+</html>
+
+

@@ -1,0 +1,49 @@
+*{
+  font-family:arial;
+}
+
+body {
+    background:#d4eae5;
+}
+
+select{
+    width:350px;
+}
+.controls{
+    margin:20px;
+    text-align:center;
+}
+.button{
+    border:1px solid #555;
+    padding:3px 12px;
+    margin:2px;
+    background-color:#bbb;
+    color:#000;
+    text-decoration:none;
+    font-size:16px;
+    outline:0px;
+}
+
+input.small, input.datepicker, input.phone{
+    width:150px;
+}
+
+input.medium{
+    width:350px;
+}
+
+input.large{
+    width:600px;
+}
+
+tr.listtable {
+    font-size:12px;
+}
+
+a.mainlink {
+    background:#8dbabf;
+    text-decoration:none;   
+}
+
+
+

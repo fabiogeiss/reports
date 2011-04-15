@@ -1,0 +1,47 @@
+
+<form method="post" action="">
+  <table border="0"> 
+    <tr>
+      <th>Data</th>
+      <th>Cliente/Médico</th>
+    </tr>
+    <tr>
+      <td><input type="text" name="data" value="<%= @visita.vis_data.strftime('%d/%m/%Y') %>" class="datepicker" /></td>
+      <td>  
+        <select name="idclientemedico" >
+          <%@clientemedico_list.each do |cml|%>
+            <%if cml.clm_internal_id == @visita.clientemedico.clm_internal_id %>
+              <option selected="selected" value="<%= cml.clm_internal_id %>"><%= cml.clm_razaosocial %></option>
+            <%else%>
+              <option value="<%= cml.clm_internal_id %>"><%= cml.clm_razaosocial %></option>
+            <%end%>
+          <%end%>
+        </select>
+      </td>
+    </tr>
+  </table>
+
+  <br/>Comentários<br/><textarea name="comentarios" cols="120" rows="18"><%= @visita.vis_comentarios %></textarea>
+  <div class="controls">
+    <input type="submit" value="salvar" class="button">
+    <a href="/visitas" shape="rect" class="button">voltar</a>
+  </div>
+</form>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+        $(".datepicker").datepicker({
+            onSelect: function(dateText, inst) {
+                $(this).focus(); 
+            },
+            changeYear: true,
+            dateFormat:'dd/mm/yy'
+        });
+
+        $(".ui-datepicker").css({'display' : 'none' , 'z-index' : 999});
+
+    });
+
+</script>
+

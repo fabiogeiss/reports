@@ -1,0 +1,62 @@
+<form method="post" action="" name="weekreport">
+  Data inicial: <input type="text" name="datainicial" value="<%= @initialdate.strftime('%d/%m/%Y') %>" class="datepicker" /></input>
+  Data final: <input type="text" name="datafinal" value="<%= @finaldate.strftime('%d/%m/%Y') %>" class="datepicker" /></input>
+  <input type="submit" value="atualizar" class="button">
+
+  <br/><br/>
+</form>
+<table border="1" cellpadding="3" cellspacing="0" >
+  <caption><em>Visitas período <%= @initialdate.strftime('%d/%m/%Y')%> a <%= @finaldate.strftime('%d/%m/%Y')%> </em></caption>  
+  <tr>  
+    <th>Data</th>
+    <th rowspan="2">Comentários</th>
+  </tr>  
+  <tr>  
+    <th>Médico/Cliente</th>
+  </tr>
+  <%if (@visitasweek) %>
+    <% @visitasweek.each do |vw| %>
+      <tr>  
+        <td><%= vw.vis_data.strftime('%d/%m/%Y')%></td>
+        <td rowspan="2" style="width:700px"><%= vw.vis_comentarios%></td>
+      </tr>  
+      <tr>  
+        <td style="max-width:400px">
+          <%if vw.clientemedico.clm_tipo == 0%> <!--cliente-->         
+            Código: <%= vw.clientemedico.clm_codigocrm%> <br/>
+            Razão Social: <%= vw.clientemedico.clm_razaosocial%><br/>
+            Nome Fantasia: <%= vw.clientemedico.clm_nomefantasia%><br/>
+            Endereço: <%= vw.clientemedico.clm_endereco%><br/>
+            Cidade: <%= vw.clientemedico.clm_cidade%><br/>
+          <%end%>
+          <%if vw.clientemedico.clm_tipo == 1%> <!--cliente-->         
+            CRM: <%= vw.clientemedico.clm_codigocrm%> <br/>
+            Nome: <%= vw.clientemedico.clm_nomefantasia%><br/>
+            Especialidade: <%= vw.clientemedico.clm_especialidade%><br/>
+            End: <%= vw.clientemedico.clm_endereco%><br/>
+            Cidade: <%= vw.clientemedico.clm_cidade%><br/>
+          <%end%>
+        </td>
+      </tr>
+    <%end%>
+  <%end%>
+</table>
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+        $(".datepicker").datepicker({
+            onSelect: function(dateText, inst) {
+                $(this).focus(); 
+            },
+            changeYear: true,
+            dateFormat:'dd/mm/yy'
+        });
+
+        $(".ui-datepicker").css({'display' : 'none' , 'z-index' : 999});
+
+    });
+
+</script>
+

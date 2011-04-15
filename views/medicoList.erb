@@ -1,0 +1,39 @@
+<div id='head3' style="text-align:center"> 
+Médicos
+</div>
+
+<% if(@medicos) %>
+
+  <table border="1" cellpadding="3" cellspacing="0" style="font-size:12px"> 
+    <tr class="listtable">
+<!--      <th class="id" style="hidden">ID</th> -->
+      <th>CRM</th>
+      <th>Nome</th>
+      <th>Especialidade</th>
+      <th>Secretária</th>
+      <th>Endereço</th>
+      <th>Cidade</th>
+      <th>Telefone</th>
+      <th>E-mail</th>
+      <th><a href='/medico/new' title="Novo Médico"><img src="/images/New-icon 24x24.png" style="border:0px"/></a></th>
+    </tr>
+  <% @medicos.each do |m| %>
+    <tr class="listtable">
+<!--      <td class="id"><%= m.clm_internal_id %></td> -->
+      <td><%= m.clm_codigocrm %></td>
+      <td><%= m.clm_nomefantasia %></td>
+      <td><%= m.clm_especialidade %></td>
+      <td><%= m.clm_secretaria %></td>
+      <td><%= m.clm_endereco %></td>
+      <td><%= m.clm_cidade %></td>
+      <td><%= m.clm_telefone %></td>
+      <td><%= m.clm_email %></td>
+      <td><a href="/medico/<%= m.clm_internal_id	%>" title="Editar"><img src="/images/Edit-icon.png" style="border:0px"/></a>
+          <a href="/medico/delete/<%= m.clm_internal_id	%>" title="Excluir"><img src="/images/Delete-icon.png" style="border:0px"/></a>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+
+<% end %>
+

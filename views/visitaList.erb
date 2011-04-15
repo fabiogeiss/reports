@@ -1,0 +1,23 @@
+<% if(@visitas) %>
+
+  <table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+      <th>Data</th>
+      <th>Cliente/Médico</th>
+      <th>Comentários</th>
+      <th><a href='/visita/new' title="Nova Visita"><img src="/images/New-icon 24x24.png" style="border:0px"/></a></th>
+    </tr>
+  <% @visitas.each do |v| %>
+    <tr>
+      <td><%= v.vis_data.strftime('%d/%m/%Y') %></td>
+      <td style="width:250px" ><%= v.clientemedico.clm_razaosocial %></td> 
+      <td style="width:500px" ><%= v.vis_comentarios[1..500]	%></td>
+      <td>
+        <a href="/visita/<%= v.vis_internal_id	%>"><img src="/images/Edit-icon.png" style="border:0px"/></a>
+        <a href="/visita/delete/<%= v.vis_internal_id	%>"><img src="/images/Delete-icon.png" style="border:0px"/></a>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+
+<% end %>

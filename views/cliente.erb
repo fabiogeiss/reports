@@ -1,0 +1,88 @@
+
+<form method="post" action="" name="client">
+  <input type="hidden" name="tipo" value="<%= 0 %>" />
+  <table border="0" cellpadding="3" cellspacing="0">
+    <tr>
+      <td>Código</td>
+      <td><input type="text" name="codigocrm" class="small" value="<%= @cliente.clm_codigocrm %>" /></td>
+    </tr>
+    <tr>
+      <td>Nome Fantasia</td>
+      <td><input type="text" name="nomefantasia" class="medium" value="<%= @cliente.clm_nomefantasia %>" /></td>
+    </tr>
+    <tr>
+      <td>Razão Social</td>
+      <td><input type="text" name="razaosocial" class="medium" value="<%= @cliente.clm_razaosocial %>" /></td>
+    </tr>
+    <tr>
+      <td>Endereço</td>
+      <td><input type="text" name="endereco" class="large" value="<%= @cliente.clm_endereco %>" /></td>
+    </tr>
+    <tr>
+      <td>Bairro</td>
+      <td><input type="text" name="bairro" class="medium" value="<%= @cliente.clm_bairro %>" /></td>
+    </tr>
+    <tr>
+      <td>Cidade</td>
+      <td><input type="text" name="cidade" class="medium" value="<%= @cliente.clm_cidade %>" /></td>
+    </tr>
+    <tr>
+      <td>Estado</td>
+      <td>
+        <select name="uf" >
+          <option <%if @cliente.clm_uf == 'AC' %> selected="selected" <%end%> value="AC">AC</option>
+          <option <%if @cliente.clm_uf == 'AL' %> selected="selected" <%end%> value="AL">AL</option>
+          <option <%if @cliente.clm_uf == 'AM' %> selected="selected" <%end%> value="AM">AM</option>
+          <option <%if @cliente.clm_uf == 'AP' %> selected="selected" <%end%> value="AP">AP</option>
+          <option <%if @cliente.clm_uf == 'BA' %> selected="selected" <%end%> value="BA">BA</option>
+          <option <%if @cliente.clm_uf == 'CE' %> selected="selected" <%end%> value="CE">CE</option>
+          <option <%if @cliente.clm_uf == 'DF' %> selected="selected" <%end%> value="DF">DF</option>
+          <option <%if @cliente.clm_uf == 'ES' %> selected="selected" <%end%> value="ES">ES</option>
+          <option <%if @cliente.clm_uf == 'GO' %> selected="selected" <%end%> value="GO">GO</option>
+          <option <%if @cliente.clm_uf == 'MA' %> selected="selected" <%end%> value="MA">MA</option>
+          <option <%if @cliente.clm_uf == 'MG' %> selected="selected" <%end%> value="MG">MG</option>
+          <option <%if @cliente.clm_uf == 'MS' %> selected="selected" <%end%> value="MS">MS</option>
+          <option <%if @cliente.clm_uf == 'MT' %> selected="selected" <%end%> value="MT">MT</option>
+          <option <%if @cliente.clm_uf == 'PA' %> selected="selected" <%end%> value="PA">PA</option>
+          <option <%if @cliente.clm_uf == 'PB' %> selected="selected" <%end%> value="PB">PB</option>
+          <option <%if @cliente.clm_uf == 'PE' %> selected="selected" <%end%> value="PE">PE</option>
+          <option <%if @cliente.clm_uf == 'PI' %> selected="selected" <%end%> value="PI">PI</option>
+          <option <%if @cliente.clm_uf == 'PR' %> selected="selected" <%end%> value="PR">PR</option>
+          <option <%if @cliente.clm_uf == 'RJ' %> selected="selected" <%end%> value="RJ">RJ</option>
+          <option <%if @cliente.clm_uf == 'RN' %> selected="selected" <%end%> value="RN">RN</option>
+          <option <%if @cliente.clm_uf == 'RO' %> selected="selected" <%end%> value="RO">RO</option>
+          <option <%if @cliente.clm_uf == 'RR' %> selected="selected" <%end%> value="RR">RR</option>
+          <option <%if @cliente.clm_uf == 'RS' %> selected="selected" <%end%> value="RS">RS</option>
+          <option <%if @cliente.clm_uf == 'SC' %> selected="selected" <%end%> value="SC">SC</option>
+          <option <%if @cliente.clm_uf == 'SE' %> selected="selected" <%end%> value="SE">SE</option>
+          <option <%if @cliente.clm_uf == 'SP' %> selected="selected" <%end%> value="SP">SP</option>
+          <option <%if @cliente.clm_uf == 'TO' %> selected="selected" <%end%> value="TO">TO</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Telefone</td>
+      <td><input type="text" name="telefone" class="phone" value="<%= @cliente.clm_telefone %>" alt="phone" /></td>
+    </tr>
+    <tr>
+      <td>E-mail</td>
+      <td><input type="text" name="email" class="large" value="<%= @cliente.clm_email %>" /></td>
+    </tr>
+  </table>
+   <div class="controls">
+    <input type="submit" value="salvar" class="button">
+    <a href="/clientes" shape="rect" class="button">voltar</a>
+  </div>
+</form>
+
+<script type="text/javascript" >
+  (function($){
+    // call setMask function on the document.ready event
+      $(function(){
+        $('.phone').setMask();
+      }
+    );
+  })(jQuery);
+</script>
+
+

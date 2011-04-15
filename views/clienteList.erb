@@ -1,0 +1,41 @@
+<div id='head3' style="text-align:center"> 
+Clientes
+</div>
+
+<% if(@clientes) %>
+
+  <table border="1" cellpadding="3" cellspacing="0" style="font-size:12px">
+    <tr class="listtable">
+<!--      <th style="display:none;"></th> -->
+      <th>Código</th>
+      <th>Razão Social</th> 
+      <th>Endereço</th>
+      <th>Bairro</th>
+      <th>Cidade</th>
+      <th>Estado</th>
+      <th>Telefone</th>
+      <th>E-mail</th>
+      <th style="min-width:40px"><a href='/cliente/new' title="Novo Cliente"><img src="/images/New-icon 24x24.png" style="border:0px"/></a> </th>
+    </tr>
+  <% @clientes.each do |c| %>
+    <tr class="listtable">
+<!--      <td style="display:none;"><%= c.clm_internal_id %></td> -->
+      <td><%= c.clm_codigocrm %></td>
+<!--      <td><%= c.clm_nomefantasia %></td> -->
+      <td><%= c.clm_razaosocial %></td> 
+      <td><%= c.clm_endereco %></td> 
+      <td><%= c.clm_bairro %></td>
+      <td><%= c.clm_cidade %></td>
+      <td><%= c.clm_uf %></td>
+      <td><%= c.clm_telefone %></td>
+      <td><%= c.clm_email %></td>
+      <td>
+        <a href="/cliente/<%= c.clm_internal_id	%>"title="Editar"><img src="/images/Edit-icon.png" style="border:0px"/></a>
+        <a href="/cliente/delete/<%= c.clm_internal_id	%>"title="Excluir"><img src="/images/Delete-icon.png" style="border:0px"/></a>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+
+<% end %>
+
